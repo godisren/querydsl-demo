@@ -2,7 +2,7 @@
 
 Demonstrate how Querydsl works on complexity query case by extending JPA in SpringBoot project. 
 
-# tech stack
+# Tech stack
 
 - JDK 17
 - SpringBoot 3.x
