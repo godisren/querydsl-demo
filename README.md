@@ -52,9 +52,7 @@ in your project in build folder.
 
 ```
 
-# Project Structure
-
-## ERD
+# ERD
 Tables : 
 - user : a user profile.
 - product : all products.
@@ -63,9 +61,10 @@ Tables :
 
 ![erd](./doc/erd.png)
 
-## How to use Querydsl
-
-see [/src/test/java/com/example/test/RepositoryTest.java](./src/test/java/com/example/test/RepositoryTest.java)
+# How to use Querydsl
+You can see and run unit test
+[/src/test/java/com/example/test/RepositoryTest.java](./src/test/java/com/example/test/RepositoryTest.java)
+to know how to use Querydsl.
 
 # References
 - http://querydsl.com/static/querydsl/5.0.0/reference/html_single/#jpa_integration
