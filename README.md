@@ -1,6 +1,6 @@
 # Introduction
 
-Demonstrate how Querydsl works on complex query cases by extending JPA in SpringBoot project. 
+This project is to demonstrate how Querydsl works on complex query cases by extending JPA in SpringBoot project. 
 
 One of advantages of using Querydsl is that we can still make use of JPA functionality and extend more dynamic 
 entity operations, especially, you have used JPA in your project. 
