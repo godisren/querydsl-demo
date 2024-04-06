@@ -28,6 +28,24 @@ dependencies {
 After executing `./gradlew classes`, the Querydsl will automatically generate the Q-Type class based on entities defined 
 in your project in build folder.
 
+```shell
+.
+├── build
+    └── classes
+      └── java
+          └── main
+            └── com
+                └── example
+                    └── entity
+                        ├── Order.class
+                        ├── Product.class
+                        ├── User.class
+                        ├── QProduct.class  <- generate by Querydsl APT
+                        ├── QUser.class     <- generate by Querydsl APT
+                        └── QOrder.class    <- generate by Querydsl APT
+
+```
+
 # Project Structure
 
 ## ERD
