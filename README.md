@@ -2,6 +2,12 @@
 
 Demonstrate how Querydsl works on complex query cases by extending JPA in SpringBoot project. 
 
+One of advantages of using Querydsl is that we can still make use of JPA functionality and extend more dynamic 
+entity operations, especially, you have used JPA in your project. 
+
+Type safety is also an important feature of Querydsl. In this way, a developer can reduce the failed operations 
+of mismatched columns based on the string-based query statement.
+
 # Tech stack
 
 - JDK 17
