@@ -59,7 +59,7 @@ Tables :
 
 ## How to use Querydsl
 
-see `/src/test/java/com/example/test/RepositoryTest.java`
+see [/src/test/java/com/example/test/RepositoryTest.java](./src/test/java/com/example/test/RepositoryTest.java)
 
 # References
 - http://querydsl.com/static/querydsl/5.0.0/reference/html_single/#jpa_integration
