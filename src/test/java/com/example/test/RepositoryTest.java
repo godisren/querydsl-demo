@@ -119,7 +119,6 @@ class RepositoryTest {
 
         System.out.println("== find order by join");
         List<OrderUserDto> findOrderUser = query
-//                .select(Projections.constructor(OrderUserDto.class, order.id, user.id, user.email))
                 .select(Projections.constructor(OrderUserDto.class, order, user))
                 .from(order)
                 .join(user).on(order.userId.eq(user.id))

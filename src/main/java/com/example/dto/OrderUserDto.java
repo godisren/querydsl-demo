@@ -8,11 +8,6 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class OrderUserDto {
-//    private Long orderId;
-//    private Long userId;
-//    private String email;
-
-
         private Order order;
         private User user;
 }
