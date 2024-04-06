@@ -1,6 +1,6 @@
 # Introduction
 
-Demonstrate how Querydsl works on complexity query case by extending JPA in SpringBoot project. 
+Demonstrate how Querydsl works on complex query cases by extending JPA in SpringBoot project. 
 
 # Tech stack
 
