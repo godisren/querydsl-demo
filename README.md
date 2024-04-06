@@ -39,6 +39,10 @@ Tables :
 
 ![erd](./doc/erd.png)
 
+## How to use Querydsl
+
+see `/src/test/java/com/example/test/RepositoryTest.java`
+
 # References
 - http://querydsl.com/static/querydsl/5.0.0/reference/html_single/#jpa_integration
 - https://www.baeldung.com/intro-to-querydsl
