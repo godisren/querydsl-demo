@@ -1,11 +1,11 @@
 package com.example.test;
 
+import com.example.ProductService;
 import com.example.dao.OrderRepository;
 import com.example.dao.ProductRepository;
-import com.example.dao.UserRepository;
 import com.example.dto.OrderUserDto;
-import com.example.entity.*;
 import com.example.entity.Order;
+import com.example.entity.*;
 import com.querydsl.core.Tuple;
 import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.impl.JPAQuery;
@@ -20,9 +20,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Set;
 
 @SpringBootTest
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -38,6 +36,9 @@ class RepositoryTest {
 
     @Autowired
     private TestUtil testUtil;
+
+    @Autowired
+    private ProductService productService;
 
     JPAQuery<?> query;
 
@@ -77,7 +78,8 @@ class RepositoryTest {
         QUser user = QUser.user;
         String emailLikeKeyword = "%tt.com%";
         System.out.println("== find user by email like '" + emailLikeKeyword + "'");
-        List<User> findUsers = query.select(user)
+        List<User> findUsers = query
+                .select(user)
                 .from(user)
                 .where(user.email.like(emailLikeKeyword))
                 .orderBy(user.email.desc())
@@ -145,6 +147,36 @@ class RepositoryTest {
                 System.out.println("order id=" + tuple.get(order.id) + ", avg price=" + tuple.get(productForJoin.price.avg())));
 
         Assertions.assertFalse(avgPrices.isEmpty());
+    }
+
+    @Test
+    void updateProductByQuerydsl() {
+        System.out.println("== update product price");
+
+        String productName = "Cup";
+        BigDecimal addPrice = BigDecimal.valueOf(10);
+        QProduct product = QProduct.product;
+        Product findProduct = query
+                .select(product)
+                .from(product)
+                .where(product.name.eq(productName))
+                .fetchOne();
+
+        System.out.println("current product " + productName + " price " + addPrice.stripTrailingZeros().toPlainString());
+        BigDecimal newPrice = findProduct.getPrice().add(addPrice);
+
+        // update data should be put in @Transactional
+        productService.updateProductPrice(findProduct.getId(), newPrice);
+
+        Product findUpdateProduct = query
+                .select(product)
+                .from(product)
+                .where(product.id.eq(findProduct.getId()))
+                .fetchOne();
+        System.out.println("current product " + productName + " new price " + addPrice.stripTrailingZeros().toPlainString());
+
+        Assertions.assertEquals(newPrice.stripTrailingZeros(),
+                findUpdateProduct.getPrice().stripTrailingZeros());
     }
 
 
