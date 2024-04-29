@@ -136,9 +136,8 @@ class RepositoryTest {
         QOrder order = QOrder.order;
 
         System.out.println("== group by prices avg");
-        JPAQuery<?> query2 = new JPAQuery<>(entityManager);
         QProduct productForJoin = new QProduct("productForJoin");
-        List<Tuple> avgPrices = query2.select(order.id, productForJoin.price.avg())
+        List<Tuple> avgPrices = query.select(order.id, productForJoin.price.avg())
                 .from(order)
                 .join(order.products, productForJoin)
                 .groupBy(order.id)
